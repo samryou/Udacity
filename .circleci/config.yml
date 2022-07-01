@@ -5,10 +5,7 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - checkout
-      - run:
-          name: "Say hello"
-          command: echo "this is Sameh's output file test" > ~/output.txt
+      - run: echo "this is Sameh's output file test" > ~/output.txt
       - persist_to_workspace:
           root: ~/
           paths: 
@@ -23,7 +20,7 @@ jobs:
       - run: cat ~/output.txt
 
 workflows:
-  say-hello-workflow:
+  sameh:
     jobs:
       - save_hello_world_output
       - print_output_file:
